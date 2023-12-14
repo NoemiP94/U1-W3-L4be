@@ -1,13 +1,11 @@
 package noemip.entities;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
-
+@Entity
+@NamedQuery(name = "findMeetsByWinner", query = "SELECT g FROM GaraDiAtletica g WHERE g.vincitore = :winner ")
 public class GaraDiAtletica extends Evento{
     @ManyToMany
     @JoinTable(name= "partecipanti_atletica", joinColumns = @JoinColumn(name= "event_id"), inverseJoinColumns = @JoinColumn(name="person_id"))
