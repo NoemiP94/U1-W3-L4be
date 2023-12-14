@@ -1,6 +1,8 @@
 package noemip.entities;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table (name= "location")
@@ -14,6 +16,9 @@ public class Location {
 
     @Column
     private String citta;
+
+    @OneToMany(mappedBy = "location")
+    private Set<Evento> eventi = new HashSet<>();
 
     //COSTRUTTORI
 
@@ -40,6 +45,14 @@ public class Location {
 
     public void setCitta(String citta) {
         this.citta = citta;
+    }
+
+    public Set<Evento> getEventi() {
+        return eventi;
+    }
+
+    public void setEventi(Set<Evento> eventi) {
+        this.eventi = eventi;
     }
 
     //METODI
