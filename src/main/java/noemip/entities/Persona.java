@@ -25,7 +25,7 @@ public class Persona {
 
     @Column
     @Enumerated(EnumType.STRING)
-    private Genere sesso;
+    private Sesso sesso;
 
 
     //one-to-many
@@ -39,7 +39,7 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String nome, String cognome, String email, LocalDate dataDiNascita, Genere sesso) {
+    public Persona(String nome, String cognome, String email, LocalDate dataDiNascita, Sesso sesso) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
@@ -81,11 +81,11 @@ public class Persona {
         this.dataDiNascita = dataDiNascita;
     }
 
-    public Genere getSesso() {
+    public Sesso getSesso() {
         return sesso;
     }
 
-    public void setSesso(Genere sesso) {
+    public void setSesso(Sesso sesso) {
         this.sesso = sesso;
     }
 

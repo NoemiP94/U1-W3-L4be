@@ -18,4 +18,14 @@ public class Concerto extends Evento{
         this.genere = genere;
         this.inStreaming = inStreaming;
     }
+
+    //METODO
+
+    @Override
+    public String toString() {
+        return "Concerto{" +
+                "genere=" + genere +
+                ", inStreaming=" + inStreaming +
+                '}';
+    }
 }

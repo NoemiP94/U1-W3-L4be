@@ -70,4 +70,17 @@ public class PartitaDiCalcio extends Evento {
     public void setGolSquadraOspite(int golSquadraOspite) {
         this.golSquadraOspite = golSquadraOspite;
     }
+
+    //METODI
+
+    @Override
+    public String toString() {
+        return "PartitaDiCalcio{" +
+                "squadraDiCasa='" + squadraDiCasa + '\'' +
+                ", squadraOspite='" + squadraOspite + '\'' +
+                ", squadraVincente='" + squadraVincente + '\'' +
+                ", golSquadraDiCasa=" + golSquadraDiCasa +
+                ", golSquadraOspite=" + golSquadraOspite +
+                '}';
+    }
 }

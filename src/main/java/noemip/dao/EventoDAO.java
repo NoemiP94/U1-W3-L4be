@@ -1,9 +1,6 @@
 package noemip.dao;
 
-import noemip.entities.Concerto;
-import noemip.entities.Evento;
-import noemip.entities.Genere;
-import noemip.entities.PartitaDiCalcio;
+import noemip.entities.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -59,10 +56,10 @@ public class EventoDAO {
     }
 
     //getConcertiPerGenere
-    public List<Concerto> getConcertiPerGenere(Genere genre){
+    public List<Concerto> getConcertiPerGenere(Genere genere){
         try{
-            TypedQuery<Concerto> q = em.createQuery("SELECT c FROM Concerto c WHERE c.genere = :genre", Concerto.class);
-            q.setParameter("genre", genre);
+            TypedQuery<Concerto> q = em.createQuery("SELECT c FROM Concerto c WHERE c.genere = :genere", Concerto.class);
+            q.setParameter("genere", genere);
             return q.getResultList();
         }catch(Exception e){
             System.err.println("Errore durante il recupero dei concerti" + e);

@@ -44,4 +44,14 @@ public class GaraDiAtletica extends Evento{
     public void setVincitore(Persona vincitore) {
         this.vincitore = vincitore;
     }
+
+    //METODI
+
+    @Override
+    public String toString() {
+        return "GaraDiAtletica{" +
+                "persone=" + persone +
+                ", vincitore=" + vincitore +
+                '}';
+    }
 }
