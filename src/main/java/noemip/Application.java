@@ -34,7 +34,7 @@ private static final EntityManagerFactory emf = Persistence.createEntityManagerF
         PartecipazioneDAO parDAO = new PartecipazioneDAO(em);
         LocationDAO locDAO = new LocationDAO(em);
 
-        Persona persona1 = new Persona("Michael", "Bublè","michael75@gmail.com", LocalDate.of(1975,9,9), TipoSesso.M);
+        Persona persona1 = new Persona("Michael", "Bublè","michael75@gmail.com", LocalDate.of(1975,9,9), Genere.M);
         //pDao.save(persona1);
 
         Location location1 = new Location("Madison Square Garden", "New York");
