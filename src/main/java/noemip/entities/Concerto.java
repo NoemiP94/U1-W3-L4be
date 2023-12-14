@@ -1,10 +1,13 @@
 package noemip.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.time.LocalDate;
 
 @Entity
 public class Concerto extends Evento{
+    @Enumerated(EnumType.STRING)
     private Genere genere;
     private Boolean inStreaming;
 
