@@ -1,9 +1,14 @@
 package noemip.dao;
 
+import noemip.entities.Concerto;
 import noemip.entities.Evento;
+import noemip.entities.Genere;
+import noemip.entities.PartitaDiCalcio;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class EventoDAO {
 
@@ -39,5 +44,44 @@ public class EventoDAO {
         }else {
             System.out.println("L'evento " + id + " non è stato trovato!");
         }
+    }
+
+    //getConcertiInStreaming
+    public List<Concerto> getConcertiInStreaming(Boolean isStreaming){
+        try{
+            TypedQuery<Concerto> q = em.createQuery("SELECT c FROM Concerto c WHERE c.inStreaming = :isStreaming", Concerto.class);
+            q.setParameter("isStreaming", isStreaming);
+            return q.getResultList();
+        }catch(Exception e){
+            System.err.println("Errore durante il recupero dei concerti" + e);
+            throw e;
+        }
+    }
+
+    //getConcertiPerGenere
+    public List<Concerto> getConcertiPerGenere(Genere genre){
+        try{
+            TypedQuery<Concerto> q = em.createQuery("SELECT c FROM Concerto c WHERE c.genere = :genre", Concerto.class);
+            q.setParameter("genre", genre);
+            return q.getResultList();
+        }catch(Exception e){
+            System.err.println("Errore durante il recupero dei concerti" + e);
+            throw e;
+        }
+    }
+
+    //getPartiteVinteInCasa
+    public List<PartitaDiCalcio> getPartiteVinteInCasa(){
+        return em.createNamedQuery("trovaVincitoriCasa", PartitaDiCalcio.class).getResultList();
+    }
+
+    //getPartiteVinteInTrasferta
+    public List<PartitaDiCalcio> getPartiteVinteInTrasferta(){
+        return em.createNamedQuery("trovaVincitoriOspiti", PartitaDiCalcio.class).getResultList();
+    }
+
+    //getPartitePareggiate
+    public List<PartitaDiCalcio> getPartitePareggiate(){
+        return em.createNamedQuery("trovaPareggio", PartitaDiCalcio.class).getResultList();
     }
 }
